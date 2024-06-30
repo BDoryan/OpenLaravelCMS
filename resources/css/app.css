@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*Create button btn-success */
+.btn-success {
+    @apply bg-green-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-danger */
+.btn-danger {
+    @apply bg-red-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-warning */
+.btn-warning {
+    @apply bg-yellow-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-info */
+.btn-info {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-primary */
+.btn-primary {
+    @apply bg-indigo-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-secondary */
+.btn-secondary {
+    @apply bg-gray-500 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-light */
+.btn-light {
+    @apply bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-dark */
+.btn-dark {
+    @apply bg-gray-800 text-white font-bold py-2 px-4 rounded;
+}
+
+/*Create button btn-link */
+.btn-link {
+    @apply text-blue-500 font-bold py-2 px-4;
+}
+
+/*Create button btn-sm */
+.btn-sm {
+    @apply py-1 px-2 text-sm;
+}
+
+/*Create button btn-lg */
+.btn-lg {
+    @apply py-3 px-6 text-lg;
+}
+
+/*Create button btn-block */
+.btn-block {
+    @apply block w-full;
+}
+
+/*Create button btn-rounded */
+.btn-rounded {
+    @apply rounded-full;
+}
+
+/*Create button btn-rounded-sm */
+.btn-rounded-sm {
+    @apply rounded-sm;
+}
+
+/*Create button btn-rounded-lg */
+.btn-rounded-lg {
+    @apply rounded-lg;
+}
+
+/*Create button btn-rounded-full */
+.btn-rounded-full {
+    @apply rounded-full;
+}
+
+/*Create button btn-rounded-none */
+.btn-rounded-none {
+    @apply rounded-none;
+}
+
+/** Inputs */
+/*Create input input-success */
+
+/* Alerts */
+/*Create alert alert-success */
+.alert-success {
+    @apply bg-green-100 border-green-400 text-green-700;
+}
+
+/*Create alert alert-danger */
+.alert-danger {
+    @apply bg-red-100 border-red-400 text-red-700;
+}
+
+/*Create alert alert-warning */
+.alert-warning {
+    @apply bg-yellow-100 border-yellow-400 text-yellow-700;
+}
+
+/*Create alert alert-info */
+.alert-info {
+    @apply bg-blue-100 border-blue-400 text-blue-700;
+}
+
+/*Create alert alert-primary */
+.alert-primary {
+    @apply bg-indigo-100 border-indigo-400 text-indigo-700;
+}
+
+/*Create alert alert-secondary */
+.alert-secondary {
+    @apply bg-gray-100 border-gray-400 text-gray-700;
+}
+
+/*Create alert alert-light */
+.alert-light {
+    @apply bg-gray-200 border-gray-500 text-gray-700;
+}
