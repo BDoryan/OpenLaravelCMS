@@ -13,7 +13,7 @@ abstract class CmsModel extends Model
     public function getTableData(): array {
         $fields = $this->fillable;
         foreach ($fields as $key => $field) {
-            $fields[$key] = $this->fields[$field] ?? ucwords(str_replace('_', ' ', $field));
+            $fields[$key] = $this->labels[$field] ?? $field;
         }
         $fields[] = 'Actions';
 
@@ -28,6 +28,8 @@ abstract class CmsModel extends Model
                     unset($entries[$key][$field]);
                 }
             }
+
+            $entries[$key]['active'] = $entry['active'] ? 'Oui' : 'Non';
             $entries[$key]['Actions'] = view('admin.pages.crud.actions', ['model' => $model_name, 'id' => $entry['id']])->render();
         }
 
