@@ -47,7 +47,7 @@ Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
 
 
         Route::middleware('auth:admin')->group(function () {
-            Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+            Route::post('logout', [AdminController::class, 'logout'])
                 ->name('logout');
         });
     }

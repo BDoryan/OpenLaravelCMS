@@ -68,6 +68,7 @@ class AdminController extends Controller
             return redirect()->route('admin.crud', ['model' => $model_name]);
         } catch (\Throwable $th) {
             $request->session()->addAlert('danger', 'Une erreur est survenue lors de l\'ajout de l\'élément');
+            dd($th->getMessage());
             return redirect()->back();
         }
     }
@@ -118,5 +119,16 @@ class AdminController extends Controller
     public function login()
     {
         return view('admin.pages.login');
+    }
+
+    public function settings()
+    {
+        return view('admin.pages.settings');
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('admin.login');
     }
 }

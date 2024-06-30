@@ -8,9 +8,48 @@ use Illuminate\Database\Eloquent\Model;
 abstract class CmsModel extends Model
 {
 
+    /**
+     * You can use this array to define the labels of your fields
+     *
+     * @return array
+     */
     public abstract function rules(): array;
 
-    public function getTableData(): array {
+    /**
+     * You can use this method to filter the data before saving it
+     *
+     * @return array
+     */
+    public function filters()
+    {
+        return [];
+    }
+
+    public function save(array $options = [])
+    {
+        $filters = $this->filters();
+        foreach ($this->fillable as $variable) {
+            $value = $this->$variable;
+
+            if (isset($filters[$variable]))
+                $this->$variable = $filters[$variable]($this->$variable);
+        }
+
+        return parent::save($options);
+    }
+
+//    TODO: Make a actions system
+//    public function actions(): array {
+//        return [
+//            'create' => true,
+//            'update' => true,
+//            'delete' => true,
+//        ];
+//    }
+
+    public
+    function getTableData(): array
+    {
         $fields = $this->fillable;
         foreach ($fields as $key => $field) {
             $fields[$key] = $this->labels[$field] ?? $field;
@@ -36,7 +75,8 @@ abstract class CmsModel extends Model
         return [$fields, $entries];
     }
 
-    public function getTableComponent(): Table
+    public
+    function getTableComponent(): Table
     {
         [$fields, $entries] = $this->getTableData();
         return new Table($fields, $entries);

@@ -20,11 +20,20 @@ class Page extends CmsModel
                 'required',
                 'string',
                 'max:255',
-                $this->id ? Rule::unique('pages')->ignore($this->id) : Rule::unique('pages')
+                'regex:/^[a-zA-Z0-9\-\/]+$/',
+                $this->id ? Rule::unique('pages')->ignore($this->id) : Rule::unique('pages'),
             ],
             'seo_title' => 'nullable|string|max:255',
             'seo_description' => 'nullable|string|max:255',
             'active' => 'boolean'
+        ];
+    }
+
+    public function filters() {
+        return [
+            'slug' => function ($value) {
+                return strtolower($value);
+            }
         ];
     }
 
