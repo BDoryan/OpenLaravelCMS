@@ -56,4 +56,8 @@ class Page extends CmsModel
     protected $casts = [
         'active' => 'boolean',
     ];
+
+    public function compositions() {
+        return $this->hasMany(PageComposition::class);
+    }
 }

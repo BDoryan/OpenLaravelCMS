@@ -16,8 +16,16 @@ trait HasFormView
     ];
 
     public static function typeToString($field) {
-        if(is_array($field))
-            return implode($field);
+        if(is_array($field)) {
+            $r = '';
+            foreach ($field as $subField) {
+                if(is_string($subField))
+                    $r .= $subField . '|';
+                else
+                    $r .= class_basename($subField) . '|';
+            }
+            return $r;
+        }
 
         return $field;
     }

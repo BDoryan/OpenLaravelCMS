@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cms\Classes\Tools;
 use App\Exceptions\ModelNotFound;
 use App\Http\Requests\Model\SetRequest;
 use App\Models\Page;
@@ -20,11 +21,10 @@ class AdminController extends Controller
 
     public function crud($model_name): View
     {
-        $model_name = ucfirst($model_name);
-        $model = "App\Models\\$model_name";
+        [$model_class_name, $model] = Tools::getModelByName($model_name);
 
-        if (!class_exists($model)) {
-            throw ModelNotFound::withModel($model);
+        if(empty($model_name)) {
+            throw new ModelNotFound($model_class_name);
         }
 
         $model_instance = new $model;
@@ -35,11 +35,10 @@ class AdminController extends Controller
     public function postSet(SetRequest $request, $model_name, $id = null)
     {
         try {
-            $model_name = ucfirst($model_name);
-            $model = "App\Models\\$model_name";
+            [$model_class_name, $model] = Tools::getModelByName($model_name);
 
-            if (!class_exists($model)) {
-                throw ModelNotFound::withModel($model);
+            if(empty($model_name)) {
+                throw new ModelNotFound($model_class_name);
             }
 
             if (!empty($id)) {
@@ -63,9 +62,9 @@ class AdminController extends Controller
             }
 
             if ($request->has('stay'))
-                return redirect()->route('admin.crud.update', ['model' => $model_name, 'id' => $model->id]);
+                return redirect()->route('admin.crud.update', ['model' => $model_class_name, 'id' => $model->id]);
 
-            return redirect()->route('admin.crud', ['model' => $model_name]);
+            return redirect()->route('admin.crud', ['model' => $model_class_name]);
         } catch (\Throwable $th) {
             $request->session()->addAlert('danger', 'Une erreur est survenue lors de l\'ajout de l\'élément');
             dd($th->getMessage());
@@ -75,11 +74,10 @@ class AdminController extends Controller
 
     public function delete($model_name, $entity_id)
     {
-        $model_name = ucfirst($model_name);
-        $model = "App\Models\\$model_name";
+        [$model_class_name, $model] = Tools::getModelByName($model_name);
 
-        if (!class_exists($model)) {
-            throw ModelNotFound::withModel($model);
+        if(empty($model_name)) {
+            throw new ModelNotFound($model_class_name);
         }
 
         $model_instance = $model::find($entity_id);
@@ -95,11 +93,10 @@ class AdminController extends Controller
 
     public function set($model_name, $entity_id = null): View
     {
-        $model_name = ucfirst($model_name);
-        $model = "App\Models\\$model_name";
+        [$model_class_name, $model] = Tools::getModelByName($model_name);
 
-        if (!class_exists($model)) {
-            throw ModelNotFound::withModel($model);
+        if(empty($model_name)) {
+            throw new ModelNotFound($model_name);
         }
 
         if (!empty($entity_id))
@@ -108,7 +105,7 @@ class AdminController extends Controller
             $model_instance = new $model;
 
 
-        return view('admin.pages.crud.set', ['model' => $model_name, 'form' => $model_instance->getFormView()]);
+        return view('admin.pages.crud.set', ['model' => $model_class_name, 'form' => $model_instance->getFormView()]);
     }
 
     public function pages()

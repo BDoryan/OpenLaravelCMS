@@ -4,5 +4,5 @@
 @section('description', $description)
 
 @include('web.partials.header')
-{{ $content  }}
+{!! $content !!}
 @include('web.partials.footer')

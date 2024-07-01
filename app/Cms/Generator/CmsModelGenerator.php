@@ -25,8 +25,14 @@ use App\Cms\Classes\CmsModel;
 
 class ' . $this->getModelName() . ' extends CmsModel {
 
+    use HasFormView;
+
     protected $fillable = [
-        \'active\' => \'boolean\',
+        \'active\',
+    ];
+
+    protected $labels = [
+        \'active\' => \'Activation de cet élément\',
     ];
 
     protected $casts = [
@@ -40,8 +46,42 @@ class ' . $this->getModelName() . ' extends CmsModel {
     }
 }
 ';
-        file_put_contents(app_path("Models/".$this->getModelName().".php"), $model);
+
+        $this->generateMigration($this->getModelName());
+
+        file_put_contents(app_path("Models/" . $this->getModelName() . ".php"), $model);
     }
+
+    private function generateMigration(string $model_name): void
+    {
+        $migration =
+            '<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+
+class Create' . $model_name . 'Table extends Migration
+{
+
+    public function up()
+    {
+        Schema::create(\'' . strtolower($model_name) . 's\', function (Blueprint $table) {
+            $table->id();
+            // Your attributes here
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists(\'' . strtolower($model_name) . 's\');
+    }
+}';
+
+        file_put_contents(database_path("migrations/" . date('Y_m_d_His') . "_create_" . strtolower($model_name) . "_table.php"), $migration);
+    }
+
 
     /**
      * @return string
