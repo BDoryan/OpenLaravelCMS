@@ -40,6 +40,11 @@ class Block extends CmsModel {
         ];
     }
 
+    public function compositions()
+    {
+        return $this->hasMany(PageComposition::class);
+    }
+
     public function render(): string
     {
         return view($this->view)->render();

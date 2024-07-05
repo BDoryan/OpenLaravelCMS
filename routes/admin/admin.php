@@ -51,4 +51,6 @@ Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
                 ->name('logout');
         });
     }
-    );
+);
+
+include __DIR__ . '/live-edit.php';

@@ -18,4 +18,4 @@ Route::fallback(function () {
     return view('web.pages.not_found');
 });
 
-require __DIR__.'/admin.php';
+require __DIR__ . '/admin/admin.php';

@@ -1,8 +1,18 @@
 @extends('web.page')
 
-@section('title', $title)
-@section('description', $description)
+@section('title', $page->title)
+@section('description', $page->description)
 
-@include('web.partials.header')
-{!! $content !!}
-@include('web.partials.footer')
+@section('content')
+    @include('web.partials.header')
+    <main class="py-50">
+        {!! $content !!}
+    </main>
+    @include('web.partials.footer')
+
+    @auth('admin')
+        @include('admin.live-editor.toolbar', [
+        'blocks' => \App\Models\Block::where(['active' => true])->get(),
+    ])
+    @endauth
+@endsection

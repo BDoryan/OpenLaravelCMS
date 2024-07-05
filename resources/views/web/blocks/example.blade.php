@@ -1,4 +1,4 @@
-<div class="py-50 bg-red-700">
-    <h1 class="text-white">Example Block</h1>
-    <p class="text-white">This is an example block</p>
+<div class="bg-red-700 p-10">
+    <h1 data-editable="title" class="text-white">Example Block</h1>
+    <p data-editable="subtitle" class="text-white">This is an example block</p>
 </div>

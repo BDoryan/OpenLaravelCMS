@@ -60,4 +60,23 @@ class Page extends CmsModel
     public function compositions() {
         return $this->hasMany(PageComposition::class);
     }
+
+    public function addComposition(Block $block, int $order = 0, $active = true) {
+        $composite = new PageComposition();
+        $composite->page_id = $this->id;
+        $composite->block_id = $block->id;
+        $composite->order = $order;
+        $composite->active = $active;
+
+        $composite->save();
+    }
+
+    public function updateComposite(PageComposition $composite, string $data) {
+        $composite->data = $data;
+        $composite->save();
+    }
+
+    public function deleteComposite(PageComposition $composite) {
+        $composite->delete();
+    }
 }

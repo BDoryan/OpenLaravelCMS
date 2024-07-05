@@ -15,6 +15,7 @@ class PageComposition extends CmsModel {
         'page_id',
         'block_id',
         'order',
+        'data',
         'active',
     ];
 
@@ -22,6 +23,7 @@ class PageComposition extends CmsModel {
         'page_id' => 'Identifiant de la page',
         'block_id' => 'Identifiant du bloc',
         'order' => 'Position de l\'élément',
+        'data' => 'Données de l\'élément (JSON)',
         'active' => 'Activation de cet élément'
     ];
 
