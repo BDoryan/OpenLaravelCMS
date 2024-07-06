@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Cms\Classes\Tools;
 use App\Models\Page;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class WebController extends Controller
 
         foreach ($composition as $composite) {
             $composite_html = $composite->block->render($composite->data);
+            $composite_data = json_decode($composite->data);
 
             $dom = new \DOMDocument();
             $dom->loadHTML($composite_html, LIBXML_NOERROR | LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
@@ -24,9 +26,26 @@ class WebController extends Controller
             $xpath = new \DOMXPath($dom);
             $nodes = $xpath->query('//*[@data-editable]');
 
-            if (Auth::guard('admin')->check()) {
-                foreach ($nodes as $node) {
+            foreach ($nodes as $node) {
+                $data_editable = $node->getAttribute('data-editable');
+
+                if (Auth::guard('admin')->check()) {
                     $node->setAttribute('contenteditable', 'true');
+                } else {
+                    $node->removeAttribute('data-editable');
+                }
+
+                if (isset($composite_data->{$data_editable})) {
+                    // If the node is a img
+                    if ($node->nodeName === 'img') {
+                        $node->setAttribute('src', $composite_data->{$data_editable});
+                    } else {
+                        $data = $composite_data->{$data_editable};
+
+                        $fragment = Tools::toNode($node, $data);
+                        $node->nodeValue = '';
+                        $node->appendChild($fragment);
+                    }
                 }
             }
 

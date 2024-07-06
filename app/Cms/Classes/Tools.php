@@ -37,4 +37,22 @@ class Tools
 
         return null;
     }
+
+    /**
+     * Return a node from the given html
+     *
+     * @param $name
+     * @return string|null
+     */
+    public static function toNode($node, $html): \DOMDocumentFragment
+    {
+        $html = str_replace('<br type="_moz">', '', $html);
+        $fragment = $node->ownerDocument->createDocumentFragment();
+
+        $line = str_replace('<br>', '<br/>', $html);
+        $line = preg_replace('/<img(.*?)>/', '<img$1/>', $line);
+
+        $fragment->appendXML($line);
+        return $fragment;
+    }
 }

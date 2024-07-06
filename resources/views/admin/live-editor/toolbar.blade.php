@@ -13,7 +13,7 @@
 
     {{-- Save button --}}
     <button
-        data-save-page
+        id="saveContent"
         class="bg-blue-700 p-2 rounded-full border-[1px] border-blue-900 border-opacity-30 group">
         <!-- Disk icon with animation transform y-1.5 on hover -->
         <svg class="group-hover:-translate-y-1.5 p-[4px] transition-transform duration-500 transform fill-gray-100 w-6 h-6" version="1.1" xmlns="http://www.w3.org/2000/svg"

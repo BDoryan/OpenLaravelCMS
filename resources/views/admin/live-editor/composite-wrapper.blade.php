@@ -1,6 +1,6 @@
 <!-- /.composite-wrapper -->
 <div class="border-slate-700 border-[1px]" data-block-id="{{$composite->block->id}}" data-composite-id="{{ $composite->id }}">
-    <div tabindex="0" class="flex gap-3 bg-slate-700 text-white px-3 py-2 italic items-center hover:cursor-move transition-transform duration-300 transform hover:bg-opacity-90
+    <div tabindex="0" class="composite-header flex gap-3 bg-slate-700 text-white px-3 py-2 italic items-center hover:cursor-move transition-transform duration-300 transform hover:bg-gray-800 hover:bg-opacity-85
     ">
         block_name: {{ $composite->block->name }}, composite_id: {{ $composite->id }},
         block_id: {{ $composite->block_id }}
