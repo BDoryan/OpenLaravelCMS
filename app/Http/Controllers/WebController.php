@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cms\Classes\Tools;
+use App\Models\Navigation;
 use App\Models\Page;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
@@ -79,8 +80,11 @@ class WebController extends Controller
 //            $html_content = $dom->saveHTML();
 //        }
 
+        $header_navigation = Navigation::where(['active' => true])->orderBy('order')->get();
+
         return view('web.layout', [
             'page' => $page,
+            'header_navigation' => $header_navigation,
             'content' => $html_content
         ]);
     }

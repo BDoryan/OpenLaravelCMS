@@ -46,11 +46,16 @@ class Tools
      */
     public static function toNode($node, $html): \DOMDocumentFragment
     {
-        $html = str_replace('<br type="_moz">', '', $html);
         $fragment = $node->ownerDocument->createDocumentFragment();
 
-        $line = str_replace('<br>', '<br/>', $html);
-        $line = preg_replace('/<img(.*?)>/', '<img$1/>', $line);
+        // It's probably you need to add more tags here
+        $line = preg_replace('/<(br|hr|img)([^>]*)>/', '<$1$2/>', $html);
+
+        $line = str_replace(
+            ['&nbsp;', '&amp;', '&quot;', '&lt;', '&gt;'],
+            ['&#160;', '&#38;', '&#34;', '&#60;', '&#62;'],
+            $line
+        );
 
         $fragment->appendXML($line);
         return $fragment;

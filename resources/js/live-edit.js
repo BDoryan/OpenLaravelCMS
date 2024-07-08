@@ -120,7 +120,50 @@ if (window.openlaravelcms_errors.length > 0) {
                     license_key: 'gpl',
                     menubar: false,
                     plugins: 'link image code',
-                    toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | link image | code'
+                    toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | link image | code',
+                    style_formats: [
+                        {
+                            title: 'Gras',
+                            inline: 'span',
+                            styles: { 'font-weight': 'bold' }
+                        },
+                        {
+                            title: 'Italic',
+                            inline: 'span',
+                            styles: { 'font-style': 'italic' }
+                        },
+                        {
+                            title: 'Sous-ligné',
+                            inline: 'span',
+                            styles: { 'text-decoration': 'underline' }
+                        },
+                        {
+                            title: 'Alignement à gauche',
+                            block: 'span',
+                            styles: { 'display': 'block', 'text-align': 'left' },
+                            wrapper: true
+                        },
+                        {
+                            title: 'Alignement au centre',
+                            block: 'span',
+                            styles: { 'display': 'block', 'text-align': 'center' },
+                            wrapper: true
+                        },
+                        {
+                            title: 'Alignement à droite',
+                            block: 'span',
+                            styles: { 'display': 'block', 'text-align': 'right' },
+                            wrapper: true
+                        }
+                    ],
+                    formats: {
+                        bold: { inline: 'span', styles: { 'font-weight': 'bold' } },
+                        italic: { inline: 'span', styles: { 'font-style': 'italic' } },
+                        underline: { inline: 'span', styles: { 'text-decoration': 'underline' } },
+                        alignleft: { block: 'span', styles: { 'display': 'block', 'text-align': 'left' }, wrapper: true },
+                        aligncenter: { block: 'span', styles: { 'display': 'block', 'text-align': 'center' }, wrapper: true },
+                        alignright: { block: 'span', styles: { 'display': 'block', 'text-align': 'right' }, wrapper: true }
+                    }
                 });
             }
         });

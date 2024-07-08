@@ -6,10 +6,9 @@
             </a>
         </div>
         <nav class="hidden md:flex space-x-6">
-            <a href="#" class="hover:text-red-300">Accueil</a>
-            <a href="#" class="hover:text-red-300">À propos</a>
-            <a href="#" class="hover:text-red-300">Services</a>
-            <a href="#" class="hover:text-red-300">Contact</a>
+            @foreach($header_navigation as $navigation)
+                <a href="/{{ $navigation->page->slug }}" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">{{ $navigation->page->name }}</a>
+            @endforeach
         </nav>
         <div class="hidden md:block">
             <a href="#" class="bg-white text-gray-800 px-4 py-2 rounded hover:bg-gray-200">Inscription</a>
@@ -24,11 +23,9 @@
     </div>
     <div id="mobile-menu" class="hidden md:hidden">
         <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Accueil</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">À propos</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Services</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Contact</a>
-            <a href="#" class="block px-3 py-2 mt-2 rounded-md text-base font-medium bg-white text-red-800 hover:bg-gray-200">Inscription</a>
+            @foreach($header_navigation as $navigation)
+                <a href="/{{ $navigation->page->slug }}" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">{{ $navigation->page->name }}</a>
+            @endforeach
         </nav>
     </div>
 </header>
