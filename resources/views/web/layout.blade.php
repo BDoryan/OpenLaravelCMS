@@ -12,7 +12,7 @@
 
     @auth('admin')
         @include('admin.live-editor.toolbar', [
-        'blocks' => \App\Models\Block::where(['active' => true])->get(),
-    ])
+            'blocks' => \App\Models\Block::where(['active' => true])->get(),
+        ])
     @endauth
 @endsection

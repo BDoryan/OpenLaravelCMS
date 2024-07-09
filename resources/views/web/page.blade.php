@@ -14,10 +14,10 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @routes
+
     @vite('resources/css/app.css')
     @vite('resources/js/cms.js')
-
-    @routes
 
     @auth('admin')
         <!-- jQuery UI required for sortable in live-edit.js -->
@@ -46,6 +46,7 @@
 <div class="flex flex-col min-h-screen" id="cms-wrapper">
     @yield('content')
 </div>
+<x-show-toasts />
 @livewireScripts
 </body>
 </html>

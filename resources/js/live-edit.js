@@ -139,30 +139,27 @@ if (window.openlaravelcms_errors.length > 0) {
                         },
                         {
                             title: 'Alignement à gauche',
-                            block: 'span',
-                            styles: { 'display': 'block', 'text-align': 'left' },
-                            wrapper: true
+                            selector: 'img',
+                            styles: { 'float': 'left', 'margin': '0 10px 10px 0' }
                         },
                         {
                             title: 'Alignement au centre',
-                            block: 'span',
-                            styles: { 'display': 'block', 'text-align': 'center' },
-                            wrapper: true
+                            selector: 'img',
+                            styles: { 'display': 'block', 'margin': '0 auto' }
                         },
                         {
                             title: 'Alignement à droite',
-                            block: 'span',
-                            styles: { 'display': 'block', 'text-align': 'right' },
-                            wrapper: true
+                            selector: 'img',
+                            styles: { 'float': 'right', 'margin': '0 0 10px 10px' }
                         }
                     ],
                     formats: {
                         bold: { inline: 'span', styles: { 'font-weight': 'bold' } },
                         italic: { inline: 'span', styles: { 'font-style': 'italic' } },
                         underline: { inline: 'span', styles: { 'text-decoration': 'underline' } },
-                        alignleft: { block: 'span', styles: { 'display': 'block', 'text-align': 'left' }, wrapper: true },
-                        aligncenter: { block: 'span', styles: { 'display': 'block', 'text-align': 'center' }, wrapper: true },
-                        alignright: { block: 'span', styles: { 'display': 'block', 'text-align': 'right' }, wrapper: true }
+                        alignleft: { selector: 'img', styles: { 'margin-right': 'auto' } },
+                        aligncenter: { selector: 'img', styles: { 'display': 'block', 'margin': '0 auto' } },
+                        alignright: { selector: 'img', styles: { 'margin-left': 'auto' } }
                     }
                 });
             }
@@ -208,6 +205,8 @@ if (window.openlaravelcms_errors.length > 0) {
                     if (response.error === undefined) {
                         debug('Block content updated successfully');
                         reloadContent();
+
+                        window.addToast('success', 'Sauvegarde réussie', 'Les modifications ont été enregistrées avec succès');
                     } else {
                         console.error('Error updating block content:', response.error);
                         alert('Error updating block content')
@@ -223,7 +222,7 @@ if (window.openlaravelcms_errors.length > 0) {
     function reloadContent() {
         const url = location.href;
 
-        $(document.body).load(url + ' #cms-wrapper', function (response, status, xhr) {
+        $('#cms-wrapper').load(url + ' #cms-wrapper > *', function (response, status, xhr) {
             if (status === 'success') {
                 debug('Content loaded successfully');
                 initialize();

@@ -44,11 +44,4 @@ class Admin extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    public function addAlert(string $type): void
-    {
-        $this->alerts()->create([
-            'type' => $type
-        ]);
-    }
 }

@@ -65,18 +65,22 @@ abstract class CmsModel extends Model
             foreach ($entry as $field => $value) {
                 if (!in_array($field, $this->fillable)) {
                     unset($entries[$key][$field]);
+                } else {
+                    // html entities
+                    $entries[$key][$field] = htmlentities($value);
                 }
             }
 
-            $entries[$key]['active'] = $entry['active'] ? 'Oui' : 'Non';
+            if(isset($entry['active']))
+                $entries[$key]['active'] = $entry['active'] ? 'Oui' : 'Non';
+
             $entries[$key]['Actions'] = view('admin.pages.crud.actions', ['model' => $model_name, 'id' => $entry['id']])->render();
         }
 
         return [$fields, $entries];
     }
 
-    public
-    function getTableComponent(): Table
+    public function getTableComponent(): Table
     {
         [$fields, $entries] = $this->getTableData();
         return new Table($fields, $entries);

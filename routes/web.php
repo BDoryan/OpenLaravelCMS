@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Page;
 use App\Cms\Classes\Tools;
@@ -18,4 +17,5 @@ Route::fallback(function () {
     return view('web.pages.not_found');
 });
 
+require __DIR__ . '/ajax.php';
 require __DIR__ . '/admin/admin.php';

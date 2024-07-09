@@ -35,5 +35,22 @@ class SessionServiceProvider extends ServiceProvider
             Session::forget('alerts');
             return $alerts;
         });
+
+        /** Add toasts to the session */
+        Session::macro('addToasts', function ($type, $message, $title = null, $duration = 5000) {
+            $toasts = Session::get('toasts', []);
+            $toasts[] = ['type' => $type, 'duration' => $duration, 'message' => $message, 'title' => $title];
+            Session::put('toasts', $toasts);
+        });
+
+        Session::macro('hasToasts', function () {
+            return Session::has('toasts');
+        });
+
+        Session::macro('getToasts', function () {
+            $toasts = Session::get('toasts');
+            Session::forget('toasts');
+            return $toasts;
+        });
     }
 }

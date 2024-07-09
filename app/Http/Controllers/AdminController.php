@@ -16,6 +16,11 @@ class AdminController extends Controller
 
     public function index()
     {
+//        Session::addToasts('success', 'Bienvenue sur le panneau d\'administration', 'Bienvenue', 15000);
+//        Session::addToasts('info', 'Vous pouvez gérer les pages, les utilisateurs et les paramètres du site', 'Informations', 15000);
+//        Session::addToasts('warning', 'Attention, vous êtes sur un environnement de développement', 'Attention', 15000);
+//        Session::addToasts('danger', 'Les modifications effectuées sur cet environnement ne sont pas définitives', 'Danger', 15000);
+
         return view('admin.pages.dashboard');
     }
 
