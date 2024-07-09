@@ -1,11 +1,11 @@
 @extends('admin.page')
 
 @section('content')
-    <div class="flex">
+    <div class="olc-flex">
         <!-- Sidebar -->
-        <x-sidebar  />
+        <x-sidebar />
         <!-- Main content -->
-        <div class="flex-1 p-10 ml-64 md:ml-0 bg-gray-700">
+        <div class="olc-flex-1 olc-p-10 olc-ml-64 md:olc-ml-0 olc-bg-gray-700">
             @yield('section-wrapper')
         </div>
     </div>

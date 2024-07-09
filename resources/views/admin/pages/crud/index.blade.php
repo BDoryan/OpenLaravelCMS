@@ -8,7 +8,7 @@
         <x-slot name="description">{{ $description }}</x-slot>
 
         <x-slot name="actions">
-            <a href="{{ route('admin.crud.create', ['model' => strtolower($model)]) }}" class="btn btn-primary">Ajouter</a>
+            <a href="{{ route('admin.crud.create', ['model' => strtolower($model)]) }}" class="olc-btn olc-btn-primary">Ajouter</a>
         </x-slot>
     </x-section-header>
 

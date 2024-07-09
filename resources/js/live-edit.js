@@ -206,7 +206,7 @@ if (window.openlaravelcms_errors.length > 0) {
                         debug('Block content updated successfully');
                         reloadContent();
 
-                        window.addToast('success', 'Sauvegarde réussie', 'Les modifications ont été enregistrées avec succès');
+                        window.showToast('success', 'Sauvegarde réussie', 'Les modifications ont été enregistrées avec succès');
                     } else {
                         console.error('Error updating block content:', response.error);
                         alert('Error updating block content')

@@ -15,33 +15,33 @@ $(document).ready(function () {
 
     // Modals for tailwindcss
     $(document).on('click', '[data-modal-open]', function () {
-        $('.modal').addClass('hidden');
+        $('.modal').addClass('olc-hidden');
 
         const modal = $(this).data('modal-open');
-        $(modal).removeClass('hidden');
+        $(modal).removeClass('olc-hidden');
 
         // Trigger
-        modal.trigger('modal:open', modal);
+        $(modal).trigger('modal:open', modal);
     });
 
-    $(document).on('click', '[data-modal-close], #close-modal', function () {
-        const modal = $(this).closest('.modal');
-        $(modal).addClass('hidden');
+    $(document).on('click', '[data-modal-close]', function () {
+        const modal_id = $(this).data('modal-close');
+        const modal = $(modal_id);
 
-        // Trigger
+        modal.addClass('olc-hidden');
         modal.trigger('modal:close', modal);
     });
 
     // Toasts
     function closeToast(toast) {
-        toast.removeClass('toast-show');
+        toast.removeClass('olc-toast-show');
 
         setTimeout(function () {
             toast.remove();
         }, 500);
     }
 
-    window.addToast = function (type, title, message, duration = 5000) {
+    window.showToast = function (type, title, message, duration = 5000) {
         const url = route('ajax.toast');
 
         $.ajax({
@@ -54,14 +54,14 @@ $(document).ready(function () {
                 duration: duration,
             },
             success: function (response) {
-                const container = $('.toast-container');
+                const container = $('.olc-toast-container');
                 response = $.parseHTML(response);
                 container.append(response);
 
-                const toast = container.find('.toast:last-child');
+                const toast = container.find('.olc-toast:last-child');
                 const duration = toast.data('duration');
 
-                toast.addClass('toast-show');
+                toast.addClass('olc-toast-show');
 
                 setTimeout(function () {
                     closeToast(toast);
@@ -75,7 +75,7 @@ $(document).ready(function () {
 
     $(document).on('click', '[data-toast-action]', function () {
         const action = $(this).data('toast-action');
-        const toast = $(this).closest('.toast');
+        const toast = $(this).closest('.olc-toast');
 
         switch (action) {
             case 'close':
@@ -86,7 +86,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.toast').each(function () {
+    $('.olc-toast').each(function () {
         const duration = $(this).data('duration');
         const toast = $(this);
 

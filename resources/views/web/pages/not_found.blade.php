@@ -4,10 +4,10 @@
 @section('title', '404')
 
 @section('content')
-    <div class="text-center mx-auto py-20 container">
+    <div class="olc-text-center olc-mx-auto olc-py-20 olc-container">
         <h1>404</h1>
         <p>Page not found</p>
 
-        <a href="{{ url()->previous() ?? '/' }}" class="text-blue-500">Go back</a>
+        <a href="{{ url()->previous() ?? '/' }}" class="olc-text-blue-500">Go back</a>
     </div>
 @endsection

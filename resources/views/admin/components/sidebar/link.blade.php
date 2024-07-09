@@ -1,5 +1,5 @@
 <a href="{{ $route }}"
-   class="px-4 py-2 hover:bg-gray-700 {{ request()->is($route) ? 'bg-gray-700' : '' }}">
-    <i class="{{ $icon }} w-[28px]"></i>
+   class="olc-px-4 olc-py-2 hover:olc-olc-bg-gray-700 {{ request()->is($route) ? 'olc-bg-gray-700' : '' }}">
+    <i class="{{ $icon }} olc-w-[28px]"></i>
     {{ $label }}
 </a>

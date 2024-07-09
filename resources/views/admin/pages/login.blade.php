@@ -4,27 +4,19 @@
 
 @section('content')
     <!-- ====== Forms Section Start -->
-    <section class="bg-gradient-to-br from-red-300 to-red-500 py-20 lg:py-[120px] min-h-[100vh]">
-        <div class="container mx-auto">
-            <div class="flex flex-wrap -mx-4">
-                <div class="w-full px-4">
-                    <div
-                        class="relative mx-auto max-w-[525px] overflow-hidden rounded-lg bg-neutral-200 text-black shadow-2xl py-16 px-10 text-center sm:px-12 md:px-[60px]"
-                    >
-                        <div class="mb-10 text-center md:mb-16">
-                            <a
-                                href="javascript:void(0)"
-                                class="mx-auto inline-block max-w-[160px]"
-                            >
-                                <img
-                                    src="{{ asset('imgs/logo-block.png') }}"
-                                    alt="logo"
-                                />
+    <section class="olc-bg-gradient-to-br olc-from-red-300 olc-to-red-500 olc-py-20 olc-lg:py-[120px] olc-min-h-[100vh]">
+        <div class="olc-container olc-mx-auto">
+            <div class="olc-flex olc-flex-wrap olc--mx-4">
+                <div class="olc-w-full olc-px-4">
+                    <div class="olc-relative olc-mx-auto olc-max-w-[525px] olc-overflow-hidden olc-rounded-lg olc-bg-neutral-200 olc-text-black olc-shadow-2xl olc-py-16 olc-px-10 olc-text-center olc-sm:px-12 md:olc-px-[60px]">
+                        <div class="olc-mb-10 olc-text-center md:olc-mb-16">
+                            <a href="javascript:void(0)" class="olc-mx-auto olc-inline-block olc-max-w-[160px]">
+                                <img src="{{ asset('imgs/logo-block.png') }}" alt="logo" />
                             </a>
-                            <h2 class="text-2xl pt-8 font-semibold text-gray-800">
+                            <h2 class="olc-text-2xl olc-pt-8 olc-font-semibold olc-text-gray-800">
                                 Connexion à votre compte
                             </h2>
-                            <p class="text-base text-body-color">
+                            <p class="olc-text-base olc-text-body-color">
                                 Veuillez vous connecter pour continuer
                             </p>
                         </div>

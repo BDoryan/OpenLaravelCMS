@@ -1,13 +1,13 @@
-<div class="flex gap-5">
-    <div class="flex flex-col">
-        <h2 class="text-2xl pt-0 font-semibold text-dark dark:text-white">
+<div class="olc-flex olc-gap-5">
+    <div class="olc-flex olc-flex-col">
+        <h2 class="olc-text-2xl olc-pt-0 olc-font-semibold olc-text-dark dark:olc-text-white">
             {{ $title }}
         </h2>
-        <p class="text-base text-body-color dark:text-neutral-400">
+        <p class="olc-text-base olc-text-body-color dark:olc-text-neutral-400">
             {{ $description }}
         </p>
     </div>
-    <div class="ms-auto flex items-center gap-5">
+    <div class="olc-ms-auto olc-flex olc-items-center olc-gap-5">
         {{ $actions  ?? ''}}
     </div>
 </div>

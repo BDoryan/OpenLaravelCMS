@@ -1,90 +1,84 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/*Create button btn-success */
-.btn-success {
-    @apply bg-green-500 text-white font-bold py-2 px-4 rounded;
-}
-
 /*Create button btn-danger */
-.btn-danger {
-    @apply bg-red-500 text-white font-bold py-2 px-4 rounded;
+.olc-btn-danger {
+    @apply olc-bg-red-500 olc-text-white olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-warning */
-.btn-warning {
-    @apply bg-yellow-500 text-white font-bold py-2 px-4 rounded;
+.olc-btn-warning {
+    @apply olc-bg-yellow-500 olc-text-white olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-info */
-.btn-info {
-    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+.olc-btn-info {
+    @apply olc-bg-blue-500 olc-text-white olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-primary */
-.btn-primary {
-    @apply bg-indigo-500 text-white font-bold py-2 px-4 rounded;
+.olc-btn-primary {
+    @apply olc-bg-indigo-500 olc-text-white olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-secondary */
-.btn-secondary {
-    @apply bg-gray-500 text-white font-bold py-2 px-4 rounded;
+.olc-btn-secondary {
+    @apply olc-bg-gray-500 olc-text-white olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-light */
-.btn-light {
-    @apply bg-gray-200 text-gray-700 font-bold py-2 px-4 rounded;
+.olc-btn-light {
+    @apply olc-bg-gray-200 olc-text-gray-700 olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-dark */
-.btn-dark {
-    @apply bg-gray-800 text-white font-bold py-2 px-4 rounded;
+.olc-btn-dark {
+    @apply olc-bg-gray-800 olc-text-white olc-font-bold olc-py-2 olc-px-4 olc-rounded;
 }
 
 /*Create button btn-link */
-.btn-link {
-    @apply text-blue-500 font-bold py-2 px-4;
+.olc-btn-link {
+    @apply olc-text-blue-500 olc-font-bold olc-py-2 olc-px-4;
 }
 
 /*Create button btn-sm */
-.btn-sm {
-    @apply py-1 px-2 text-sm;
+.olc-btn-sm {
+    @apply olc-py-1 olc-px-2 olc-text-sm;
 }
 
 /*Create button btn-lg */
-.btn-lg {
-    @apply py-3 px-6 text-lg;
+.olc-btn-lg {
+    @apply olc-py-3 olc-px-6 olc-text-lg;
 }
 
 /*Create button btn-block */
-.btn-block {
-    @apply block w-full;
+.olc-btn-block {
+    @apply olc-block olc-w-full;
 }
 
 /*Create button btn-rounded */
-.btn-rounded {
-    @apply rounded-full;
+.olc-btn-rounded {
+    @apply olc-rounded-full;
 }
 
 /*Create button btn-rounded-sm */
-.btn-rounded-sm {
-    @apply rounded-sm;
+.olc-btn-rounded-sm {
+    @apply olc-rounded-sm;
 }
 
 /*Create button btn-rounded-lg */
-.btn-rounded-lg {
-    @apply rounded-lg;
+.olc-btn-rounded-lg {
+    @apply olc-rounded-lg;
 }
 
 /*Create button btn-rounded-full */
-.btn-rounded-full {
-    @apply rounded-full;
+.olc-btn-rounded-full {
+    @apply olc-rounded-full;
 }
 
 /*Create button btn-rounded-none */
-.btn-rounded-none {
-    @apply rounded-none;
+.olc-btn-rounded-none {
+    @apply olc-rounded-none;
 }
 
 /** Inputs */
@@ -92,92 +86,94 @@
 
 /* Alerts */
 /*Create alert alert-success */
-.alert-success {
-    @apply bg-green-100 border-green-400 text-green-700;
+.olc-alert-success {
+    @apply olc-bg-green-100 olc-border-green-400 olc-text-green-700;
 }
 
 /*Create alert alert-danger */
-.alert-danger {
-    @apply bg-red-100 border-red-400 text-red-700;
+.olc-alert-danger {
+    @apply olc-bg-red-100 olc-border-red-400 olc-text-red-700;
 }
 
 /*Create alert alert-warning */
-.alert-warning {
-    @apply bg-yellow-100 border-yellow-400 text-yellow-700;
+.olc-alert-warning {
+    @apply olc-bg-yellow-100 olc-border-yellow-400 olc-text-yellow-700;
 }
 
 /*Create alert alert-info */
-.alert-info {
-    @apply bg-blue-100 border-blue-400 text-blue-700;
+.olc-alert-info {
+    @apply olc-bg-blue-100 olc-border-blue-400 olc-text-blue-700;
 }
 
 /*Create alert alert-primary */
-.alert-primary {
-    @apply bg-indigo-100 border-indigo-400 text-indigo-700;
+.olc-alert-primary {
+    @apply olc-bg-indigo-100 olc-border-indigo-400 olc-text-indigo-700;
 }
 
 /*Create alert alert-secondary */
-.alert-secondary {
-    @apply bg-gray-100 border-gray-400 text-gray-700;
+.olc-alert-secondary {
+    @apply olc-bg-gray-100 olc-border-gray-400 olc-text-gray-700;
 }
 
 /*Create alert alert-light */
-.alert-light {
-    @apply bg-gray-200 border-gray-500 text-gray-700;
+.olc-alert-light {
+    @apply olc-bg-gray-200 olc-border-gray-500 olc-text-gray-700;
 }
 
-.toast {
-    @apply w-full rounded-2xl shadow-lg transition-all duration-300 ease-in-out transform -translate-y-2 opacity-0;
+.olc-toast {
+    @apply olc-w-full olc-rounded-2xl olc-shadow-lg olc-transition-all olc-duration-300 olc-ease-in-out olc-transform olc--translate-y-2 olc-opacity-0;
 }
 
-.toast-show {
-    @apply opacity-100 translate-y-0;
+.olc-toast-show {
+    @apply olc-opacity-100 olc-translate-y-0;
 }
 
-.toast-container {
-    @apply fixed z-50 bottom-2 right-2 flex flex-col gap-3 items-end justify-center sm:items-start sm:justify-end;
+.olc-toast-container {
+    @apply olc-fixed olc-z-50 olc-bottom-2 olc-right-2 olc-flex olc-flex-col olc-gap-3 olc-items-end olc-justify-center sm:olc-items-start sm:olc-justify-end;
 }
 
-.toast-content {
-    @apply relative flex flex-col p-4 max-w-sm w-full bg-white shadow-lg rounded-lg pointer-events-auto;
+.olc-toast-content {
+    @apply olc-relative olc-flex olc-flex-col olc-p-4 olc-max-w-sm olc-w-full olc-bg-white olc-shadow-lg olc-rounded-lg olc-pointer-events-auto;
 }
 
-.toast-title {
-    @apply text-lg font-medium;
+.olc-toast-title {
+    @apply olc-text-lg olc-font-medium;
 }
 
-.toast-message {
-    @apply text-sm;
+.olc-toast-message {
+    @apply olc-text-sm;
 }
 
-.toast-success {
-    @apply bg-green-100 border-green-300 text-green-700 border-[1px];
+.olc-toast-success {
+    @apply olc-bg-green-100 olc-border-green-300 olc-text-green-700 olc-border-[1px];
 }
 
-.toast-danger, .toast-error {
-    @apply bg-red-100 border-red-400 text-red-700 border-[1px];
+.olc-toast-danger,
+.olc-toast-error {
+    @apply olc-bg-red-100 olc-border-red-400 olc-text-red-700 olc-border-[1px];
 }
 
-.toast-warning {
-    @apply bg-yellow-100 border-yellow-400 text-yellow-700 border-[1px];
+.olc-toast-warning {
+    @apply olc-bg-yellow-100 olc-border-yellow-400 olc-text-yellow-700 olc-border-[1px];
 }
 
-.toast-info {
-    @apply bg-blue-100 border-blue-400 text-blue-700 border-[1px];
+.olc-toast-info {
+    @apply olc-bg-blue-100 olc-border-blue-400 olc-text-blue-700 olc-border-[1px];
 }
 
-.toast-primary {
-    @apply bg-indigo-100 border-indigo-400 text-indigo-700 border-[1px];
+.olc-toast-primary {
+    @apply olc-bg-indigo-100 olc-border-indigo-400 olc-text-indigo-700 olc-border-[1px];
 }
 
-.toast-secondary {
-    @apply bg-gray-100 border-gray-400 text-gray-700 border-[1px];
+.olc-toast-secondary {
+    @apply olc-bg-gray-100 olc-border-gray-400 olc-text-gray-700 olc-border-[1px];
 }
 
-.toast-light {
-    @apply bg-gray-200 border-gray-500 text-gray-700 border-[1px];
+.olc-toast-light {
+    @apply olc-bg-gray-200 olc-border-gray-500 olc-text-gray-700 olc-border-[1px];
 }
 
-.toast-dark {
-    @apply bg-gray-800 border-gray-800 text-white border-[1px];
+.olc-toast-dark {
+    @apply olc-bg-gray-800 olc-border-gray-800 olc-text-white olc-border-[1px];
 }
+

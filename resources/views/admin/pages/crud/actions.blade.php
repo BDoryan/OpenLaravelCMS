@@ -1,13 +1,13 @@
-<div class="inline-flex gap-3">
+<div class="olc-inline-flex olc-gap-3">
     <a href="{{ route('admin.crud.update', ['model' => $model, 'id' => $id]) }}"
-       class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+       class="olc-px-4 olc-py-2 olc-bg-blue-600 olc-text-white olc-font-semibold olc-rounded-lg olc-shadow-md hover:olc-bg-blue-700 focus:olc-outline-none focus:olc-ring-2 focus:olc-ring-blue-500 focus:olc-ring-opacity-75">
         Modifier
     </a>
     <form action="{{ route('admin.crud.delete', ['model' => $model, 'id' => $id]) }}" method="POST">
         @csrf
         @method('DELETE')
         <button type="submit"
-                class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg shadow-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75">
+                class="olc-px-4 olc-py-2 olc-bg-red-600 olc-text-white olc-font-semibold olc-rounded-lg olc-shadow-md hover:olc-bg-red-700 focus:olc-outline-none focus:olc-ring-2 focus:olc-ring-red-500 focus:olc-ring-opacity-75">
             Supprimer
         </button>
     </form>

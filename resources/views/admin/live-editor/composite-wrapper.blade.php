@@ -1,16 +1,15 @@
 <!-- /.composite-wrapper -->
-<div class="border-slate-700 border-[1px]" data-block-id="{{$composite->block->id}}" data-composite-id="{{ $composite->id }}">
-    <div tabindex="0" class="composite-header flex gap-3 bg-slate-700 text-white px-3 py-2 italic items-center hover:cursor-move transition-transform duration-300 transform hover:bg-gray-800 hover:bg-opacity-85
-    ">
+<div class="olc-border-slate-700 olc-border-[1px]" data-block-id="{{$composite->block->id}}" data-composite-id="{{ $composite->id }}">
+    <div tabindex="0" class="olc-composite-header olc-flex olc-gap-3 olc-bg-slate-700 olc-text-white olc-px-3 olc-py-2 olc-italic olc-items-center hover:olc-olc-cursor-move olc-transition-transform olc-duration-300 olc-transform hover:olc-olc-bg-gray-800 hover:olc-olc-bg-opacity-85">
         block_name: {{ $composite->block->name }}, composite_id: {{ $composite->id }},
         block_id: {{ $composite->block_id }}
-        <div class="ms-auto flex gap-3">
+        <div class="olc-ms-auto olc-flex olc-gap-3">
             <button
                 data-block-action="move-up"
-                class="bg-gray-600 p-2 rounded-full border-[1px] border-gray-600 border-opacity-30 group">
+                class="olc-bg-gray-600 olc-p-2 olc-rounded-full olc-border-[1px] olc-border-gray-600 olc-border-opacity-30 olc-group">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 185.343 185.343" xml:space="preserve"
-                     class="group-hover:-translate-y-1.5 transition-transform duration-700 transform w-4 h-4 fill-white rotate-[-90deg]" ><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                     class="olc-group-hover:-olc-translate-y-1.5 olc-transition-transform olc-duration-700 olc-transform olc-w-4 olc-h-4 olc-fill-white olc-rotate-[-90deg]"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
                         <g>
@@ -23,10 +22,10 @@
 
             <button
                 data-block-action="move-down"
-                class="bg-gray-600 p-2 rounded-full border-[1px] border-gray-600 border-opacity-30 group">
+                class="olc-bg-gray-600 olc-p-2 olc-rounded-full olc-border-[1px] olc-border-gray-600 olc-border-opacity-30 olc-group">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 185.343 185.343" xml:space="preserve"
-                     class="group-hover:translate-y-1.5 transition-transform duration-700 transform w-4 h-4 fill-white rotate-90" ><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                     class="olc-group-hover:olc-translate-y-1.5 olc-transition-transform olc-duration-700 olc-transform olc-w-4 olc-h-4 olc-fill-white olc-rotate-90"><g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
                         <g>
@@ -39,8 +38,8 @@
 
             <button
                 data-block-action="delete"
-                class="bg-red-700 p-2 rounded-full border-[1px] border-red-900 border-opacity-30 hover:rotate-180 transition-transform duration-500 transform">
-                <svg class="w-4 h-4 text-white rotate-45" fill="none" stroke="currentColor"
+                class="olc-bg-red-700 olc-p-2 olc-rounded-full olc-border-[1px] olc-border-red-900 olc-border-opacity-30 hover:olc-olc-rotate-180 olc-transition-transform olc-duration-500 olc-transform">
+                <svg class="olc-w-4 olc-h-4 olc-text-white olc-rotate-45" fill="none" stroke="currentColor"
                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
                 </svg>

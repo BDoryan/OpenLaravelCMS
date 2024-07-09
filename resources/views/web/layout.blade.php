@@ -5,7 +5,7 @@
 
 @section('content')
     @include('web.partials.header')
-    <main class="py-50">
+    <main class="olc-py-50">
         {!! $content !!}
     </main>
     @include('web.partials.footer')
