@@ -8,22 +8,42 @@ use App\View\Components\SidebarLink;
 class CmsEngine
 {
 
+    const VERSION = '1.0.0';
+    public static $modules = [];
+
+    public static function getVersion(): string
+    {
+        return self::VERSION;
+    }
+
+    public static function addModule($module): void
+    {
+        self::$modules[] = $module;
+    }
+
     public static function getSidebar(): array
     {
         // Content Manger
-        $links['Gestionnaire de contenu'] = [
+        $links[__('admin.sidebar.content_management')] = [
             new SidebarLink('fa fa-file-lines', 'Pages', route('admin.pages')),
             new SidebarLink('fa fa-compass', 'Navigations', route('admin.dashboard')),
 //            new SidebarLinkComponent('fas fa-folder', 'Categories', route('admin.dashboard')),
         ];
 
         // Admin Center
-        $links['Centre d\'administration'] = [
+        $links[__('admin.sidebar.admin_center')] = [
             new SidebarLink('fas fa-users', 'Utilisateurs', route('admin.dashboard')),
         ];
 
+        $modules = array_map(function ($module) {
+            return new SidebarLink('fas fa-cube', $module->getName(), route('admin.dashboard'));
+        }, self::$modules);
+
+        // Modules center
+        $links[__('admin.sidebar.modules')] = $modules;
+
         // Developer Tools
-        $links['Outils de développeur'] = [
+        $links[__('admin.sidebar.developer_center')] = [
 //            new SidebarLinkComponent('fas fa-code', 'Code Editor', route('admin.dashboard')),
             new SidebarLink('fas fa-database', 'Base de donnée', route('admin.dashboard')),
         ];

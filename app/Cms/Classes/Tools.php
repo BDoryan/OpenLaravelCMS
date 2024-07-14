@@ -10,6 +10,19 @@ class Tools
         return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $string), '-'));
     }
 
+    public static function deleteDirectory($dir): void
+    {
+        if (!file_exists($dir))
+            return;
+
+        $files = array_diff(scandir($dir), ['.', '..']);
+
+        foreach ($files as $file) {
+            (is_dir("$dir/$file")) ? self::deleteDirectory("$dir/$file") : unlink("$dir/$file");
+        }
+        rmdir($dir);
+    }
+
     /**
      * Return the model class name from the given name
      *

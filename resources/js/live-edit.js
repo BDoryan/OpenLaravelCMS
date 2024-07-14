@@ -79,7 +79,7 @@ if (window.openlaravelcms_errors.length > 0) {
     function initialize() {
         $('#cms-wrapper main').sortable({
             items: '[data-composite-id]',
-            handle: '.composite-header',
+            handle: '.olc-composite-header',
             update: function () {
                 const page_id = $(this).closest('body').data('page-id');
 

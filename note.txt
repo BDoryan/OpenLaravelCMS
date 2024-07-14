@@ -1,0 +1,2 @@
+// Modules autoloader for composer
+composer dump-autoload

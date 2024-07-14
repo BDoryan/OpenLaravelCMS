@@ -1,6 +1,6 @@
 <!-- /.composite-wrapper -->
 <div class="olc-border-slate-700 olc-border-[1px]" data-block-id="{{$composite->block->id}}" data-composite-id="{{ $composite->id }}">
-    <div tabindex="0" class="olc-composite-header olc-flex olc-gap-3 olc-bg-slate-700 olc-text-white olc-px-3 olc-py-2 olc-italic olc-items-center hover:olc-olc-cursor-move olc-transition-transform olc-duration-300 olc-transform hover:olc-olc-bg-gray-800 hover:olc-olc-bg-opacity-85">
+    <div tabindex="0" class="olc-composite-header olc-flex olc-gap-3 olc-bg-slate-700 olc-text-white olc-px-3 olc-py-2 olc-italic olc-items-center hover:olc-cursor-move olc-transition-transform olc-duration-300 olc-transform hover:olc-bg-gray-800 hover:olc-bg-opacity-85">
         block_name: {{ $composite->block->name }}, composite_id: {{ $composite->id }},
         block_id: {{ $composite->block_id }}
         <div class="olc-ms-auto olc-flex olc-gap-3">
@@ -38,7 +38,7 @@
 
             <button
                 data-block-action="delete"
-                class="olc-bg-red-700 olc-p-2 olc-rounded-full olc-border-[1px] olc-border-red-900 olc-border-opacity-30 hover:olc-olc-rotate-180 olc-transition-transform olc-duration-500 olc-transform">
+                class="olc-bg-red-700 olc-p-2 olc-rounded-full olc-border-[1px] olc-border-red-900 olc-border-opacity-30 hover:olc-rotate-180 olc-transition-transform olc-duration-500 olc-transform">
                 <svg class="olc-w-4 olc-h-4 olc-text-white olc-rotate-45" fill="none" stroke="currentColor"
                      viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>

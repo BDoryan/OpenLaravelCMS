@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
 //            'email' => 'test@example.com',
 //        ]);
 
-        Admin::create([
-            'name' => 'Dodod',
-            'email' => 'test@example.com',
-            'password' => Hash::make('password'),
-        ]);
+//        Admin::create([
+//            'name' => 'Doryan',
+//            'email' => 'contact@doryanbessiere.fr',
+//            'password' => Hash::make('******'),
+//        ]);
     }
 }

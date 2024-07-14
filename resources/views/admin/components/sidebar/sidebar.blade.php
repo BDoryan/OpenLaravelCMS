@@ -13,16 +13,16 @@
         @endforeach
 
         <div class="olc-mt-auto olc-p-4">
-            <p class="olc-text-center">Bienvenue, {{ Auth::user()->name }}</p>
+            <p class="olc-text-center">{{ __('admin.sidebar.welcome', ['name' => Auth::user()->name]) }}</p>
             <p class="olc-text-center olc-text-neutral-400">© 2024 OpenLaravelCMS</p>
         </div>
         <a href="{{ route('admin.settings') }}" class="olc-w-full olc-py-3 olc-bg-gray-900 olc-text-center olc-font-bold">
             <i class="fas fa-cog olc-w-[24px]"></i>
-            Paramètres
+            {{ __('admin.sidebar.settings') }}
         </a>
         <a href="{{ route('admin.logout') }}" class="olc-w-full olc-py-3 olc-bg-red-700 olc-text-center olc-font-bold">
             <i class="fas fa-sign-out-alt olc-w-[24px]"></i>
-            Se déconnecté
+            {{ __('admin.sidebar.logout') }}
         </a>
     </nav>
 </div>
