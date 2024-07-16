@@ -3,6 +3,7 @@
 namespace App\Cms\Classes;
 
 use App\Models\ModuleMigration;
+use Illuminate\View\View;
 
 abstract class CmsModule
 {
@@ -123,6 +124,23 @@ abstract class CmsModule
             $seed_instance = new $class_name();
             $seed_instance->run();
         }
+    }
+
+    public function view(string $view, array $data = []): View
+    {
+        return view('modules.'.$this->getName().'.'.$view, $data);
+    }
+
+    public function route(string $route = ''): string
+    {
+        if(empty($route))
+            return route("admin.modules.".$this->nameLowercase());
+        return route("admin.modules.".$this->nameLowercase().".$route");
+    }
+
+    public function nameLowercase(): string
+    {
+        return strtolower($this->getName());
     }
 
     public function basePath(string $path): string

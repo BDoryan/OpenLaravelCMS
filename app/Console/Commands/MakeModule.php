@@ -53,9 +53,21 @@ class MakeModule extends Command
             "$module_path/tests",
         ];
 
+        $files = [
+            "$module_path/routes/web.php",
+            "$module_path/routes/api.php",
+            "$module_path/routes/admin.php",
+        ];
+
         foreach ($directories as $directory) {
             if (!file_exists($directory)) {
                 mkdir($directory, 0755, true);
+            }
+        }
+
+        foreach ($files as $file) {
+            if (!file_exists($file)) {
+                fopen($file, "w");
             }
         }
 

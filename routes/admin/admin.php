@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Middleware\BackOfficeMiddleware;
-use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Providers\CmsModuleProvider;
+use App\Http\Controllers\ModuleController;
 
 Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
     ->name('admin.')
@@ -36,6 +36,9 @@ Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
 
                 Route::delete('/crud/{model}/delete/{id}', [AdminController::class, 'delete'])
                     ->name('crud.delete');
+
+                Route::get('/modules', [AdminController::class, 'modules'])
+                    ->name('modules');
             });
 
 
@@ -51,6 +54,6 @@ Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
                 ->name('logout');
         });
     }
-);
+    );
 
 include __DIR__ . '/live-edit.php';

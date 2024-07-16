@@ -38,9 +38,9 @@
                 </button>
             </div>
             <div class="olc-grid olc-grid-cols-3 olc-gap-4 olc-mt-4">
-                @empty($blocks)
+                @if($blocks->isEmpty())
                     <p class="olc-text-center">Aucun bloc disponible</p>
-                @endempty
+                @endif
                 @foreach($blocks ?? [] as $block)
                     <button data-modal-close="#blocksModal" data-block-id="{{ $block->id }}" class="olc-bg-gray-800 olc-p-4 olc-rounded-lg hover:olc-bg-gray-900">
                         <p class="olc-text-center">

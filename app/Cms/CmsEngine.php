@@ -2,6 +2,7 @@
 
 namespace App\Cms;
 
+use App\Cms\Classes\CmsModule;
 use App\View\Components\Sidebar;
 use App\View\Components\SidebarLink;
 
@@ -9,7 +10,11 @@ class CmsEngine
 {
 
     const VERSION = '1.0.0';
-    public static $modules = [];
+    public static array $modules = [];
+
+    public static function getModules(): array {
+        return self::$modules;
+    }
 
     public static function getVersion(): string
     {
@@ -35,9 +40,17 @@ class CmsEngine
             new SidebarLink('fas fa-users', 'Utilisateurs', route('admin.dashboard')),
         ];
 
-        $modules = array_map(function ($module) {
-            return new SidebarLink('fas fa-cube', $module->getName(), route('admin.dashboard'));
-        }, self::$modules);
+        $modules = [
+            new SidebarLink('fas fa-cube', __('admin.sidebar.module_manage'), route('admin.modules')),
+        ];
+
+        /**
+         * @var CmsModule $module
+         */
+        foreach (self::$modules as $module) {
+            $module_route = $module->route();
+            $modules[] = new SidebarLink('fas fa-cube', $module->getName(), $module_route);
+        }
 
         // Modules center
         $links[__('admin.sidebar.modules')] = $modules;

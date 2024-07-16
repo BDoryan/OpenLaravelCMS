@@ -24,6 +24,11 @@ class AdminController extends Controller
         return view('admin.pages.dashboard');
     }
 
+    public function modules(): View
+    {
+        return view('admin.pages.modules');
+    }
+
     public function crud($model_name): View
     {
         [$model_class_name, $model] = Tools::getModelByName($model_name);
