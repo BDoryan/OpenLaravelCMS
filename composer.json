@@ -10,7 +10,8 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "tightenco/ziggy": "^2.2",
-        "ext-dom": "*"
+        "ext-dom": "*",
+        "ext-json": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

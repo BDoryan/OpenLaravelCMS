@@ -42,7 +42,7 @@
 
     @livewireStyles
 </head>
-<body @auth('admin') data-page-id="{{ $page->id }}" @endauth>
+<body @auth('admin') data-page-id="{{ $page->id ?? 'undefined' }}" @endauth>
 <div class="olc-flex olc-flex-col olc-min-h-screen" id="cms-wrapper">
     @yield('content')
 </div>

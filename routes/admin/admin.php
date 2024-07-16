@@ -8,7 +8,7 @@ use App\Http\Controllers\ModuleController;
 Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
     ->name('admin.')
     ->group(function () {
-        Route::middleware(['auth:admin', 'verified'])
+        Route::middleware(['auth:admin'])
             ->group(function () {
                 Route::get('/', [AdminController::class, 'index'])
                     ->name('dashboard');
@@ -39,8 +39,15 @@ Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
 
                 Route::get('/modules', [AdminController::class, 'modules'])
                     ->name('modules');
-            });
 
+                foreach (CmsModuleProvider::getModules() as $module) {
+                    Route::prefix(env('CMS_ADMIN_ROUTE', 'admin') . '/modules/' . $module->nameLowercase())
+                        ->name('modules.' . $module->nameLowercase())
+                        ->group(function () use ($module) {
+                            include base_path("/modules/".$module->getName()."/routes/admin/module.php");
+                        });
+                }
+            });
 
         Route::middleware('guest:admin')
             ->group(function () {
@@ -54,6 +61,6 @@ Route::prefix(env('CMS_ADMIN_ROUTE', 'admin'))
                 ->name('logout');
         });
     }
-    );
+);
 
 include __DIR__ . '/live-edit.php';

@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'modules' => [
+        'search_a_module' => 'Rechercher un module...',
+    ],
     'sidebar' => [
         'content_management' => 'Gestion du contenu',
         'admin_center' => 'Centre d\'administration',

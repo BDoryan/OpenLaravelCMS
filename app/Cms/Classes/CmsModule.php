@@ -151,4 +151,15 @@ abstract class CmsModule
         $module_directory = base_path("modules/{$this->name}");
         return base_path("$module_directory$path");
     }
+
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->getName(),
+            'description' => $this->getDescription(),
+            'version' => $this->getVersion(),
+            'author' => $this->getAuthor(),
+            'route' => $this->route()
+        ];
+    }
 }

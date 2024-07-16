@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cms\Classes\Tools;
+use App\Cms\CmsEngine;
 use App\Exceptions\ModelNotFound;
 use App\Http\Requests\Model\SetRequest;
 use App\Models\Page;
@@ -26,7 +27,9 @@ class AdminController extends Controller
 
     public function modules(): View
     {
-        return view('admin.pages.modules');
+        return view('admin.pages.modules', [
+            'modules' => CmsEngine::getModules()
+        ]);
     }
 
     public function crud($model_name): View

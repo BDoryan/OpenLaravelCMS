@@ -42,21 +42,50 @@ class MakeModule extends Command
 
         // Create directory for views
         $directories = [
-            "$module_path/views",
+            "$module_path/resources/views",
+            "$module_path/resources/lang",
+            "$module_path/controllers",
             "$module_path/app/Classes",
             "$module_path/app/Controllers",
             "$module_path/app/Models",
             "$module_path/database/migrations",
             "$module_path/database/seeds",
-            "$module_path/resources/lang",
+            "$module_path/assets/css",
+            "$module_path/assets/js",
+            "$module_path/assets/images",
+            "$module_path/assets/fonts",
+            "$module_path/assets/vendor",
+            "$module_path/config",
             "$module_path/routes",
+            "$module_path/routes/admin",
             "$module_path/tests",
         ];
 
         $files = [
-            "$module_path/routes/web.php",
-            "$module_path/routes/api.php",
-            "$module_path/routes/admin.php",
+            "$module_path/controllers/ModuleController.php" =>
+                "<?php\n" .
+                "\n" .
+                "namespace Modules\\$name\controllers;\n" .
+                "\n" .
+                "use App\Http\Controllers\Controller;\n" .
+                "\n" .
+                "class ModuleController extends Controller\n" .
+                "{\n" .
+                "    public function index()\n" .
+                "    {\n" .
+                "        return view('".strtolower($name)."::index');\n" .
+                "    }\n" .
+                "}\n",
+            "$module_path/resources/views/index.blade.php" => "Made the module $name",
+            "$module_path/routes/admin/module.php" =>
+                "<?php\n" .
+                "\n" .
+                "use Illuminate\Support\Facades\Route;\n" .
+                "use Modules\\$name\controllers\ModuleController;\n" .
+                "\n" .
+                "Route::get('module', [ModuleController::class, 'index']);\n" .
+                "\n",
+            "$module_path/routes/web.php" => "<?php\n",
         ];
 
         foreach ($directories as $directory) {
@@ -65,17 +94,15 @@ class MakeModule extends Command
             }
         }
 
-        foreach ($files as $file) {
-            if (!file_exists($file)) {
-                fopen($file, "w");
-            }
+        foreach ($files as $file => $content) {
+            file_put_contents($file, $content);
         }
 
         // Create module file
         $module_file = fopen("$module_path/$name.php", "w");
         fwrite($module_file, "<?php\n\n");
         fwrite($module_file, "namespace Modules\\$name;\n\n");
-        fwrite($module_file, "use App\Cms\Module\CmsModule;\n\n");
+        fwrite($module_file, "use App\Cms\Classes\CmsModule;\n\n");
         fwrite($module_file, "class $name extends CmsModule\n");
         fwrite($module_file, "{\n\n");
         fwrite($module_file, "    public function __construct()\n");

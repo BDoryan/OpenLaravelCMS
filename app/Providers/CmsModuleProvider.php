@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Cms\Classes\CmsModule;
 use App\Cms\CmsEngine;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -29,23 +31,11 @@ class CmsModuleProvider extends ServiceProvider
              * @var CmsModule $module
              */
             $module = new $moduleClass();
-
             $module_name_lower = $module->nameLowercase();
 
             // Load translations
             $this->loadTranslationsFrom(base_path("modules/$module_name/resources/lang"), $module_name_lower);
-
-            // Load views
             $this->loadViewsFrom(base_path("modules/$module_name/resources/views"), $module_name_lower);
-
-            // Load routes
-            Route::prefix(env('CMS_ADMIN_ROUTE', 'admin') . '/modules/' . $module_name)
-                ->name('admin.modules.' . $module_name_lower)
-                ->middleware(['auth:admin', 'verified'])
-                ->group(function () use ($module_name) {
-                    $this->loadRoutesFrom(base_path("modules/$module_name/routes/admin/module.php"));
-                });
-            $this->loadRoutesFrom(base_path("modules/$module_name/routes/web.php"));
 
             // Load module
             $module->load();
